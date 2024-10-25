@@ -1,7 +1,7 @@
 /**
  * @param {Object} ctx - Dependency Injection
  * @param {import('src/domain/enums/global/ExceptionEnum')} ctx.exceptionEnum
- * @param {import('src/interfaces/http/errors/Exception')} ctx.exception
+ * @param {import('src/config/config')} ctx.config
  */
 module.exports = ({ exceptionEnum, config }) => {
     // eslint-disable-next-line no-unused-vars
