@@ -3,8 +3,9 @@ module.exports = {
     appCode: 10,
     stackErrorisVisible: true,
     database: {
-        dialect: 'sqlite',
-        storage: './database.sqlite',
+        dialect: 'sqlite::memory:',
+        storage: ':memory:',
+        pool: { max: 1, idle: Infinity, maxUses: Infinity },
         models: ["movieModel", "producerModel"]
     }
 }

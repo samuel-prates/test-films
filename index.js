@@ -3,7 +3,7 @@ const app = new Application();
 
 (async () => {
   try {
-    await app.start();
+    await app.start({});
   } catch (error) {
     console.error(error.stack);
     process.exit(1);

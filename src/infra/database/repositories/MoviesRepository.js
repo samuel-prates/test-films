@@ -33,6 +33,7 @@ module.exports = class MoviesRepository extends AbstractRepository {
             const t = await this._db.sequelize.transaction();
             try {
                 await created.save({ fields: ['producers'], transaction: t });
+                await t.commit()
                 return new Movie(created.title, created.studios, created.producers, created.year, created.is_winner);
             } catch (error) {
                 await t.rollback();

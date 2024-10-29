@@ -5,10 +5,10 @@ module.exports = class Application {
         this._container = container;
     }
 
-    async start() {
+    async start({ initData = true }) {
         const { server, connectionDb } = this._container.cradle;
 
-        await connectionDb.init();
+        await connectionDb.init(initData);
         return await server.init();
     }
 }

@@ -1,18 +1,14 @@
 const Application = require('src/application/Application');
 const request = require('supertest');
-var fs = require('fs');
-const path = require('node:path');
 
 describe('Entrypoint tests', function () {
     let server, app;
     beforeAll(async () => {
         app = new Application();
-        server = await app.start();
+        server = await app.start({ initData: false });
     });
     afterAll(async () => {
         server.close();
-        var filePath = path.join(__dirname, '..', 'database.sqlite');
-        fs.unlinkSync(filePath);
     })
 
     it('POST /movies', async () => {
